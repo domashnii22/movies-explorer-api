@@ -7,6 +7,7 @@ const { errors } = require("celebrate");
 const cors = require("cors");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 const { limiter } = require("./utils/constants");
+const routes = require("./routes/index");
 
 const errorHandler = require("./middlewares/error-handler");
 
@@ -27,7 +28,7 @@ app.use(requestLogger);
 
 app.use(limiter);
 
-app.use("/", require("./routes/index"));
+app.use(routes);
 
 app.use(errorLogger);
 

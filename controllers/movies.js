@@ -41,7 +41,7 @@ module.exports.addMovie = (req, res, next) => {
     .then((data) => res.status(HTTP_STATUS_CREATED).send(data))
     .catch((err) => {
       if (err.name === "ValidationError") {
-        next(new BadRequestError("Некорректный запрос"));
+        next(new BadRequestError(err.message));
       } else {
         next(err);
       }

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const urlRegex = require("../utils/constants");
+const validator = require("validator");
 
 const movieSchema = new mongoose.Schema(
   {
@@ -27,30 +27,24 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
       validate: {
-        validator(url) {
-          return urlRegex.test(url);
-        },
-        message: "Введите корректный URL",
+        validator: (v) => validator.isURL(v),
+        message: "Некорректный URL",
       },
     },
     trailer: {
       type: String,
       required: true,
       validate: {
-        validator(url) {
-          return urlRegex.test(url);
-        },
-        message: "Введите корректный URL",
+        validator: (v) => validator.isURL(v),
+        message: "Некорректный URL",
       },
     },
     thumbnail: {
       type: String,
       required: true,
       validate: {
-        validator(url) {
-          return urlRegex.test(url);
-        },
-        message: "Введите корректный URL",
+        validator: (v) => validator.isURL(v),
+        message: "Некорректный URL",
       },
     },
     owner: {

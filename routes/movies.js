@@ -7,7 +7,7 @@ const {
 
 router.get("/", getMovies);
 
-router.post("/movies", validationAddMovie, addMovie);
+router.post("/", validationAddMovie, addMovie);
 
 router.delete("/:movieId", validationDeleteMovie, deleteMovie);
 

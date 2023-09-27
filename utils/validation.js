@@ -36,10 +36,10 @@ const validationAddMovie = celebrate({
     description: Joi.string().required(),
     image: Joi.string().required().pattern(urlRegex),
     trailer: Joi.string().required().pattern(urlRegex),
-    nameRU: Joi.string().required(),
-    nameEN: Joi.string().required(),
     thumbnail: Joi.string().required().pattern(urlRegex),
     movieId: Joi.number().required(),
+    nameRU: Joi.string().required(),
+    nameEN: Joi.string().required(),
   }),
 });
 
