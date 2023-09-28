@@ -1,9 +1,7 @@
-require("dotenv").config();
-
-const { SECRET_KEY = "some-secret-key" } = process.env;
 const { HTTP_STATUS_OK, HTTP_STATUS_CREATED } = require("http2").constants;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { SECRET_KEY } = require("../utils/config");
 const User = require("../models/user");
 const BadRequestError = require("../errors/BadRequestError");
 const NotFoundError = require("../errors/NotFoundError");
